@@ -13,6 +13,13 @@ pygame.mixer.init()
 Song_End = pygame.USEREVENT + 1
 pygame.mixer.music.set_endevent(Song_End)
 
+def load_music():
+    tempStorage = MusicPlays()
+    for song in tempStorage:
+        songlist.insert("end", song)
+    songlist.selection_set(0)
+    currentSong = tempStorage[songlist.curselection()[0]]
+
 def play_music(event=None):
     tempStorage = MusicPlays()
     MusicList = LinkedList()
