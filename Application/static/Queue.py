@@ -22,7 +22,7 @@ class Queue:
         self.front = -1  # Tracks the front element
         self.rear = -1   # Tracks the rear element
         self.size = 0    # Tracks the current number of elements
-        self.pointer = -1 # Gets the current song
+        self.pointer = 0 # Gets the current song
 
 
     def is_empty(self):
@@ -72,16 +72,22 @@ class Queue:
         try:
             self.pointer = self.pointer + 1
             if self.queue[self.pointer] == None:
-                self.pointer = self.front
+                self.pointer = self.rear
         except:
-            self.pointer = 0
+            self.pointer = self.rear
         return self.queue[self.pointer]
 
     def previous_element(self):
         try:
             self.pointer = self.pointer - 1
             if self.queue[self.pointer] == None:
-                self.pointer = self.rear
+                self.pointer = self.front
         except:
-            self.pointer = self.rear
+            self.pointer = self.front
         return self.queue[self.pointer]
+    
+    def element_pointer(self):
+        return self.queue[self.pointer]
+    
+    def element(self):
+        return str(self.queue[self.pointer])
