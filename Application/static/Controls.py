@@ -1,4 +1,4 @@
-from static.Playlist import MusicPlays
+from static.Playlist import MusicPlays, AlbumsList
 import pygame
 from static.Queue import *
 
@@ -6,23 +6,28 @@ from static.Queue import *
 pygame.mixer.init()
 Song_End = pygame.USEREVENT + 1
 pygame.mixer.music.set_endevent(Song_End)
-global manysongs
+#global manysongs
 
-
-def load_music(songlist):
+def load_album(songlist):
     #global currentSong
     global album
     global manysongs
 
-    album = MusicPlays()
+    album = AlbumsList()
+    album = Queue(len(album))
+
+def load_music(album):
+    #global currentSong
+    global manysongs
+
+    album = MusicPlays(album)
     manysongs = Queue(len(album))
     for song in album:
-        songlist.insert("end", song)
         manysongs.enqueue(song)
-    songlist.selection_set(0)
+    return manysongs
 
-def play_music(event=None):
-    global currentSong
+
+def play_music(manysongs):
 
     # currentSong = album[songlist.curselection()[0]]
     # pygame.mixer.music.load("Application\\Music\\" + currentSong)

@@ -68,6 +68,9 @@ class Queue:
         print(f"Dequeued: {value_to_return}")
         return value_to_return
     
+    def QueueSize(self):
+        return self.size
+    
     def next_element(self):
         try:
             self.pointer = self.pointer + 1
