@@ -90,7 +90,4 @@ class Queue:
         return self.queue[self.pointer]
     
     def element_pointer(self):
-        return self.queue[self.pointer]
-    
-    def element(self):
         return str(self.queue[self.pointer])

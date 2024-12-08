@@ -1,7 +1,6 @@
 from tkinter import *
 import pygame
 import os
-from static.Playlist import MusicPlays, AlbumsList
 from static.Queue import *
 from static.Controls import *
 from functools import partial
@@ -42,25 +41,26 @@ control_frame.pack()
 def onselect():
     global albumlist
     global manysongs
+    global playlist
+    global album
 
-    folder = MusicPlays(albumlist.get(albumlist.curselection()))
+    album = albumlist.get(albumlist.curselection())
+    manysongs = MusicPlays(album)
+    load_music(album)
     albumlist.delete(0,END)
-    albumlist.insert(0, folder.element_pointer())
-    for i in range(folder.QueueSize()):
-        song = folder.next_element()
-        albumlist.insert(i, song)
-    AlbumTitle = Label(text=albumlist.get(albumlist.curselection()))
+    albumlist.insert(0, manysongs[0])
+    for i in range(len(manysongs)):
+        for song in manysongs:
+            albumlist.insert(i, song)
+    AlbumTitle = Label(text=album)
     albumlist.pack()
-    manysongs = load_music(folder)
     control_frame = Frame(root)
-    control_frame.pack()
+    control_frame.pack() 
 
-MusicPlayer = play_music(manysongs)
-
-playBtn = Button(control_frame,text=">", command=MusicPlayer, width=5)
+playBtn = Button(control_frame,text=">", command=lambda: play_music(album), width=5)
 pauseBtn = Button(control_frame,text="||", command=pause_song, width=5)
-nextSongBtn = Button(control_frame,text=">>", command=next_song, width=5)
-prevSongBtn = Button(control_frame,text="<<", command=prev_song, width=5)
+nextSongBtn = Button(control_frame,text=">>", command=lambda: next_song(album), width=5)
+prevSongBtn = Button(control_frame,text="<<", command=lambda: prev_song(album), width=5)
 ShuffleBtn = Button(control_frame,text="Shuffle", command=shuffle_songs, width=5)
 SubmitBtn = Button(control_frame, text="Submit", command=onselect, width=5)
 BackBtn = Button(control_frame, text="Back", command=albumListBox, width=5)

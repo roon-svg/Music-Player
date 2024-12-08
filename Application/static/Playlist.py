@@ -2,13 +2,13 @@ import os
 from static.Queue import Queue
 
 def MusicPlays(Album):
-    musiclist = Queue(100)
+    manysongs = Queue(100)
     for x in os.listdir(r"Application\Music\\" + str((Album))):
         if x.endswith(".mp3"):
             # Saves only text file present in My Folder
-            musiclist.enqueue(x)
+            manysongs.enqueue(x)
             #print(musiclist[x],"\n")
-    return musiclist
+    return manysongs
 
 def AlbumsList():
     albumlist = []
