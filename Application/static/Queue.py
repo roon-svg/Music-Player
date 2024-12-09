@@ -16,7 +16,6 @@ class Node:
 
 class Queue:
     def __init__(self, max_size):
-
         self.queue = [None] * max_size  # Fixed-size array
         self.max_size = max_size
         self.front = -1  # Tracks the front element
@@ -91,3 +90,6 @@ class Queue:
     
     def element_pointer(self):
         return str(self.queue[self.pointer])
+    
+    def queue_elements(self):
+        return self.queue

@@ -1,8 +1,6 @@
 from static.Playlist import MusicPlays, AlbumsList
-import pygame
 from static.Queue import *
-import os
-
+import random, os, pygame
 
 #This gets the music player ready and allows for the song to go an event when the song ends
 pygame.mixer.init()
@@ -56,4 +54,7 @@ def prev_song(album, event=None):
     pygame.mixer.music.play()
 
 def shuffle_songs(event=None):
-    pass
+    shuffledlist = random.shuffle(playlist.queue_elements)
+    for n in shuffledlist:    
+        playlist.dequeue()
+        playlist.enqueue(n)
