@@ -80,10 +80,10 @@ class highlight:
 highlight = highlight()
 
 songprogress = ttk.Progressbar(control_frame, orient=HORIZONTAL, length=500)
-playBtn = Button(control_frame,text=">", command=lambda: [play_music(album), highlight.song_highlight()], width=5)
+playBtn = Button(control_frame,text=">", command=lambda: play_music(album), width=5)
 pauseBtn = Button(control_frame,text="||", command=pause_song, width=5)
-nextSongBtn = Button(control_frame,text=">>", command=lambda: [next_song(album), highlight.next_song_highlight()], width=5)
-prevSongBtn = Button(control_frame,text="<<", command=lambda: [prev_song(album), highlight.prev_song_highlight()], width=5)
+nextSongBtn = Button(control_frame,text=">>", command=lambda: next_song(album), width=5)
+prevSongBtn = Button(control_frame,text="<<", command=lambda: prev_song(album), width=5)
 ShuffleBtn = Button(control_frame,text="Shuffle", command=lambda: shuffle_songs(album), width=5)
 SubmitBtn = Button(control_frame, text="Submit", command=onselect, width=5)
 BackBtn = Button(control_frame, text="Back", command=albumListBox, width=5)

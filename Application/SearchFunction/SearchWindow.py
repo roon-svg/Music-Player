@@ -49,3 +49,4 @@ def linear_search(list, search_entry):
 def GoTo():
     searching.messagebox.showinfo()
 
+SearchingWindow()
