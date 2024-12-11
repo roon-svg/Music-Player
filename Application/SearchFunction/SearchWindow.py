@@ -39,14 +39,27 @@ def PopulateListBox():
                 search_list_box.insert(x, str(song))
 
 def Find(search_entry):
-    linear_search(allsongs, search_entry)
     search_list_box.delete(0, END)
+    linear_search(allsongs, search_entry)
 
-def linear_search(list, search_entry):
-    list
-    pass
+def linear_search(songlist, search_entry):
+    entry_list = str(search_entry)
+    
+    n = 0
+    for songnames in list(songlist):
+        print(songnames)
+        songnames_list = list(songnames)
+        for x in range(len(songnames_list)):
+            if entry_list[n] == songnames_list[x]:
+                n +=1
+                search_list_box.insert(END, str(songnames))
+            else:
+                print("Not found")
+        if n == len(entry_list):
+            search_list_box.insert(END, str(songnames))
+
 
 def GoTo():
-    searching.messagebox.showinfo()
+    searching.messagebox.showinfo(search_list_box.curselection())
 
 SearchingWindow()
