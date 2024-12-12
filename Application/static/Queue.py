@@ -1,38 +1,24 @@
-class Node:
-    def __init__(self, value, next_node=None):
-        self.value = value
-        self.next_node = next_node
-    
-    def get_value(self):
-        return self.value
-    
-    def get_next_node(self):
-        return self.next_node
-    
-    
-    def set_next_node(self, next_node):
-        self.next_node = next_node
-
-
+# This is where
 class Queue:
     def __init__(self, max_size):
         self.queue = [None] * max_size  # Fixed-size array
-        self.max_size = max_size
+        self.max_size = max_size # Sets the maximum size of the Queue
         self.front = -1  # Tracks the front element
         self.rear = -1   # Tracks the rear element
         self.size = 0    # Tracks the current number of elements
         self.pointer = 0 # Gets the current song
 
-
+    # If the queue is it will return 0
     def is_empty(self):
         return self.size == 0
 
+    # If the Queue is full then this function will return the maximum allowed size
     def is_full(self):
         return self.size == self.max_size
 
+    # This adds a new element into the queue
     def enqueue(self, value):
         if self.is_full():
-            #print("Queue is full. Cannot enqueue.")
             return
 
         if self.is_empty():
@@ -47,6 +33,7 @@ class Queue:
         self.queue[self.rear] = value
         self.size += 1
 
+    # This removes the element at the back fo the queu
     def dequeue(self):
         if self.is_empty():
             print("Queue is empty. Cannot dequeue.")
@@ -67,9 +54,11 @@ class Queue:
         print(f"Dequeued: {value_to_return}")
         return value_to_return
     
+    # This returns the size of the queue
     def QueueSize(self):
         return self.size
     
+    # This moves the pointer into the next element in the queue
     def next_element(self):
         try:
             self.pointer = self.pointer + 1
@@ -79,6 +68,7 @@ class Queue:
             self.pointer = self.rear
         return self.queue[self.pointer]
 
+    # This moves the pointer into the previous element in the queue
     def previous_element(self):
         try:
             self.pointer = self.pointer - 1
@@ -88,8 +78,10 @@ class Queue:
             self.pointer = self.front
         return self.queue[self.pointer]
     
+    # This returns the element in the pointer
     def element_pointer(self):
         return str(self.queue[self.pointer])
     
+    # This returns the elements in the queue as a python list
     def queue_elements(self):
         return self.queue
