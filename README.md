@@ -8,4 +8,7 @@ As python does not update dynamically with the flask application, I switched to 
 I made the tkinter application and had the basic play functionality. I originally used a linked list to play the music. The linked list could not loop the music when it ended and I could not figure out how to go to the previous song.
 
 ## Week 3
-Here I added multiple folders with different music so that you can have different albums of music. 
+On this week I added multiple folders with different music so that you can have different albums of music. I also started to make the shuffler.
+
+## Week 4
+On this week I made the searching window. This used linear search and recursion to find the desired result.

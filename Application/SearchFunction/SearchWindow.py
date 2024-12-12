@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+#import tkinter.messagebox
 import os
 
 def SearchingWindow():
@@ -24,6 +25,8 @@ def SearchingWindow():
     search_list_box = Listbox(background="Navy", foreground="White", selectmode=SINGLE, width=100, height=25)
     PopulateListBox()
     search_list_box.pack(side=BOTTOM)
+    go_to_btn = Button(text="Refresh", command=PopulateListBox)
+    go_to_btn.pack(side=BOTTOM)
 
     searching.mainloop()
 

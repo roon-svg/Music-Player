@@ -56,7 +56,7 @@ def prev_song(album, event=None):
 
 #This suffles the songs in the folder and puts it back into the queue
 def shuffle_songs(event=None):
-    shuffledlist = random.shuffle(playlist.queue_elements)
+    shuffledlist = random.shuffle(playlist.queue_elements())
     for n in shuffledlist:    
         playlist.dequeue()
         playlist.enqueue(n)
